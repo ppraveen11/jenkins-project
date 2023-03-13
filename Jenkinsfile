@@ -23,7 +23,7 @@ pipeline {
                     
                       steps{ 
                           
-                          sh "sudo docker build  -t   ppraveen11/javaweb:${BUILD_TAG}  ."
+                          sh "sudo docker build  -t   mondisaidurga01/javaweb:${BUILD_TAG}  ."
                           
                       }
         }
@@ -35,7 +35,7 @@ pipeline {
            withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWD', variable: 'docker_hub_psswd_var')]) {
     // some block
 
-                       sh "sudo docker login  -u  ppraveen11  -p  $docker_hub_psswd_var" 
+                       sh "sudo docker login  -u  mondisaidurga01  -p  $docker_hub_psswd_var" 
 
                }
                           
