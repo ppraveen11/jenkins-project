@@ -39,7 +39,7 @@ pipeline {
 
                }
                           
-           sh "sudo docker push   ppraveen11/javaweb:${BUILD_TAG}"
+           sh "sudo docker push   mondisaidurga01/javaweb:${BUILD_TAG}"
               
                            
    }
