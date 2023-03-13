@@ -55,7 +55,7 @@ pipeline {
                  
                  // sh 'sudo docker rm -f javawebapp || true'
                   
-                  sh "sudo docker run -d  -p  80:8080  --name  javawebapp    mondisaidurga01/javaweb:${BUILD_TAG}" 
+                  sh "sudo docker run -d  -p  1234:8080  --name  javawebapp    mondisaidurga01/javaweb:${BUILD_TAG}" 
                 
                  
                 }
