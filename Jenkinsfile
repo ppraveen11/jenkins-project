@@ -91,13 +91,13 @@ pipeline {
           stage("Deploying WEBAPP in prod env "){ 
             steps{ 
                 
-                sshagent(['k8s-master-key']) {
+                sshagent(['FORQAT']) {
               
-                    sh 'ssh  -o  StrictHostKeyChecking=no ec2-user@13.232.51.114' 
-                   sh "ssh  ec2-user@13.232.51.114  sudo kubectl  delete deployment javawebapp"
-                  sh "sudo kubectl create deployment javawebapp --image=ppraveen11/javaweb:${BUILD_TAG}"
-                 sh "sudo kubectl apply -f webapsvc.yml"
-                sh "sudo kubectl scale deployment javawebapp --replicas=5"
+                    sh 'ssh  -o  StrictHostKeyChecking=no ec2-user@65.2.132.216' 
+                    sh 'sudo docker rm -f javawebapp || true'
+                    sh "sudo docker run -d  -p  1234:8080  --name  javawebapp    mondisaidurga01/javaweb:${BUILD_TAG}"
+                    
+                   
                 
                  
                 }
