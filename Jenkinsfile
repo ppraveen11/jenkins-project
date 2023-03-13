@@ -32,10 +32,10 @@ pipeline {
                     
            steps{ 
                           
-           withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWD', variable: 'docker_hub_psswd_var')]) {
+           withCredentials([string(credentialsId: 'SAI-DOCKERHUB-PSWD', variable: 'docker_hub_psswd_var2')]) {
     // some block
 
-                       sh "sudo docker login  -u  mondisaidurga01  -p  $docker_hub_psswd_var" 
+                       sh "sudo docker login  -u  mondisaidurga01  -p  $docker_hub_psswd_var2" 
 
                }
                           
