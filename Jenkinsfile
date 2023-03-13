@@ -45,31 +45,23 @@ pipeline {
    }
         }
         
-        stage("Deploying WEBAPP in dev env "){ 
-            steps{ 
-                
-                sh 'sudo docker rm -f javawebapp'
-                
-                sh "sudo docker run -d  -p  1234:8080  --name  javawebapp    ppraveen11/javaweb:${BUILD_TAG} "  
-                
-            } }
             
-        stage("Deploying WEBAPP in QAT/TEST env "){ 
+        stage("Deploying WEBAPP in dev env and  QAT/TEST  "){ 
             steps{ 
                 
-                sshagent(['QAT_TEST']) {
+                sshagent(['FORQAT']) {
     // some block
-                 sh 'ssh  -o  StrictHostKeyChecking=no ec2-user@3.110.85.253' 
+                 sh 'ssh  -o  StrictHostKeyChecking=no ec2-user@13.235.245.225' 
                  
                   sh 'sudo docker rm -f javawebapp'
                   
-                  sh "sudo docker run -d  -p  1234:8080  --name  javawebapp   ppraveen11/javaweb:${BUILD_TAG}" 
+                  sh "sudo docker run -d  -p  80:8080  --name  javawebapp   ppraveen11/javaweb:${BUILD_TAG}" 
                 
                  
                 }
         }   }
             
-            stage('QAT_TEST'){
+            stage('FORQAT'){
                 
                 
                  steps{
