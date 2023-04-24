@@ -51,7 +51,7 @@ pipeline {
                 
                 sshagent(['FORQAT']) {
     // some block
-                 sh 'ssh  -o  StrictHostKeyChecking=no ec2-user@43.205.117.93' 
+                 sh 'ssh  -o  StrictHostKeyChecking=no ec2-user@13.126.149.224' 
                  
                  sh 'sudo docker rm -f javawebapp || true'
                   
@@ -93,7 +93,7 @@ pipeline {
                 
                 sshagent(['FORQAT']) {
               
-                    sh 'ssh  -o  StrictHostKeyChecking=no ec2-user@3.110.127.59' 
+                    sh 'ssh  -o  StrictHostKeyChecking=no ec2-user@13.126.149.224' 
                     sh 'sudo docker rm -f javawebapp || true'
                     sh "sudo docker run -d  -p  1234:8080  --name  javawebapp    mondisaidurga01/javaweb:${BUILD_TAG}"
                     
