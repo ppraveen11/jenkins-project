@@ -51,7 +51,7 @@ pipeline {
                 
                 sshagent(['FORQAT']) {
     // some block
-                 sh 'ssh  -o  StrictHostKeyChecking=no ec2-user@13.126.149.224' 
+                 sh 'ssh  -o  StrictHostKeyChecking=no ec2-user@43.205.213.63' 
                  
                  sh 'sudo docker rm -f javawebapp || true'
                   
